@@ -100,6 +100,9 @@ func main() {
 	case "completed":
 		commands.CompletedTodosList()
 
+	case "stats":
+		commands.TodoStats()
+
 	default:
 		fmt.Println("Unknown command.")
 		util.PrintUsage()

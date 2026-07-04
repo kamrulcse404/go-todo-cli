@@ -14,4 +14,5 @@ func PrintUsage() {
 	fmt.Println("  todo search <id>")
 	fmt.Println("  todo pending")
 	fmt.Println("  todo completed")
+	fmt.Println("  todo stats")
 }
