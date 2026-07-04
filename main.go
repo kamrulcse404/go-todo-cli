@@ -5,24 +5,21 @@ import (
 	"os"
 	"todo-cli/commands"
 	"todo-cli/util"
+	"strings"
 )
 
 func main() {
 	if len(os.Args) < 2 {
-		fmt.Println("Usage:")
-		fmt.Println("todo add \"Task\"")
-		fmt.Println("todo list")
-		fmt.Println("todo complete <id>")
-		fmt.Println("todo delete <id>")
+		util.PrintUsage()
 		return
 	}
-
-	command := os.Args[1]
+	command := strings.ToLower(os.Args[1])
 
 	switch command {
 	case "add":
 		if len(os.Args) < 3 {
 			fmt.Println("Please provide a todo title.")
+			util.PrintUsage()
 			return
 		}
 		title := os.Args[2]
@@ -32,25 +29,45 @@ func main() {
 	case "complete":
 		if len(os.Args) < 3 {
 			fmt.Println("Please provide a todo ID.")
+			util.PrintUsage()
 			return
 		}
 
 		id, err := util.StringToInt(os.Args[2])
 		if err != nil {
-			fmt.Println("Invalid ID.")
+			fmt.Println("Invalid ID. Please provide a numeric ID.")
 			return
 		}
 		commands.CompleteTodo(id)
 	case "delete":
 		if len(os.Args) < 3 {
 			fmt.Println("Please provide a todo ID.")
+			util.PrintUsage()
 			return
 		}
 		id, err := util.StringToInt(os.Args[2])
 		if err != nil {
 			fmt.Println("Invalid ID.")
+			util.PrintUsage()
 			return
 		}
 		commands.DeleteTodo(id)
+	case "edit":
+		if len(os.Args) < 4 {
+			fmt.Println("Usage: todo edit <id> \"Title\"")
+			util.PrintUsage()
+			return
+		}
+		title := os.Args[3]
+		id, err := util.StringToInt(os.Args[2])
+		if err != nil {
+			fmt.Println("Invalid ID.")
+			util.PrintUsage()
+			return
+		}
+		commands.EditTodo(id, title)
+	default:
+		fmt.Println("Unknown command.")
+		util.PrintUsage()
 	}
 }
