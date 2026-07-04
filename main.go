@@ -94,6 +94,12 @@ func main() {
 		}
 		fmt.Printf("%d. [%s] %s\n", todo.ID, status, todo.Title)
 
+	case "pending":
+		commands.PeningTodosList()
+
+	case "completed":
+		commands.CompletedTodosList()
+
 	default:
 		fmt.Println("Unknown command.")
 		util.PrintUsage()

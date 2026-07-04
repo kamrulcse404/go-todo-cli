@@ -12,4 +12,6 @@ func PrintUsage() {
 	fmt.Println("  todo delete <id>")
 	fmt.Println("  todo edit <id> \"Title\"")
 	fmt.Println("  todo search <id>")
+	fmt.Println("  todo pending")
+	fmt.Println("  todo completed")
 }
