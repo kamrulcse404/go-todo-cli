@@ -6,7 +6,7 @@ A simple and beginner-friendly Todo CLI application built with **Go**. This proj
 
 ## Features
 
-- ➕ Add a new todo
+-  Add a new todo
 -  List all todos
 -  Edit an existing todo
 -  Mark a todo as completed
