@@ -102,13 +102,13 @@ go version
 Clone the repository:
 
 ```bash
-git clone https://github.com/kamrulcse404/todo-cli.git
+git clone https://github.com/kamrulcse404/go-todo-cli.git
 ```
 
 Go to the project directory:
 
 ```bash
-cd todo-cli
+cd go-todo-cli
 ```
 
 Run the application:
